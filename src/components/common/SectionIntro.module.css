@@ -1,0 +1,27 @@
+.intro {
+  display: grid;
+  gap: 1rem;
+  max-width: 58rem;
+}
+
+.eyebrow {
+  color: var(--color-accent);
+  font-size: 0.84rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+  text-wrap: balance;
+}
+
+.description {
+  max-width: 46rem;
+  color: var(--color-text-muted);
+  font-size: 1.04rem;
+  line-height: 1.72;
+  text-wrap: pretty;
+}

@@ -1,0 +1,154 @@
+:root {
+  --font-body: "Urbanist", "Poppins", system-ui, sans-serif;
+  --font-display: "Poppins", "Urbanist", system-ui, sans-serif;
+  --color-bg: #180f2a;
+  --color-bg-alt: #21153a;
+  --color-surface: rgba(255, 255, 255, 0.06);
+  --color-surface-strong: rgba(255, 255, 255, 0.12);
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.72);
+  --color-accent: #c6ff34;
+  --color-accent-soft: rgba(198, 255, 52, 0.16);
+  --color-border: rgba(255, 255, 255, 0.14);
+  --shadow-soft: 0 24px 80px rgba(8, 5, 16, 0.38);
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --container: min(1180px, calc(100vw - 2rem));
+  --pointer-x: 50%;
+  --pointer-y: 30%;
+  --pointer-x-unit: 0.5;
+  --pointer-y-unit: 0.3;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --tilt-x-soft: 0deg;
+  --tilt-y-soft: 0deg;
+  --audio-level: 0;
+  --transition-smooth: 220ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #0f0919;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  background: linear-gradient(180deg, #0f0919 0%, #180f2a 28%, #130b21 100%);
+  color: var(--color-text);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+button,
+a,
+input,
+textarea {
+  font: inherit;
+}
+
+@media (pointer: fine) {
+  body,
+  body *,
+  body *::before,
+  body *::after {
+    cursor: none !important;
+  }
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p,
+span,
+small,
+li,
+a,
+button,
+input,
+textarea,
+label,
+strong {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-font {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+p,
+span,
+small,
+li,
+label {
+  text-wrap: pretty;
+}
+
+#root {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0f0919 0%, #180f2a 28%, #130b21 100%);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #091103;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

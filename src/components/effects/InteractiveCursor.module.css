@@ -1,0 +1,70 @@
+.outer,
+.inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.outer {
+  width: 5.6rem;
+  height: 5.6rem;
+  margin-left: -2.8rem;
+  margin-top: -2.8rem;
+  border: 1px solid rgba(198, 255, 52, 0.22);
+  border-radius: 50%;
+  background: rgba(198, 255, 52, 0.06);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  transform: scale(0.8);
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease,
+    width 220ms ease,
+    height 220ms ease,
+    margin 220ms ease,
+    border-color 220ms ease;
+}
+
+.outer span {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.outerVisible {
+  opacity: 1;
+}
+
+.outerLabeled {
+  width: 7.2rem;
+  height: 7.2rem;
+  margin-left: -3.6rem;
+  margin-top: -3.6rem;
+  border-color: rgba(198, 255, 52, 0.38);
+  transform: scale(1);
+}
+
+.outerPressed {
+  transform: scale(0.84);
+}
+
+.inner {
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-left: -0.275rem;
+  margin-top: -0.275rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 18px rgba(198, 255, 52, 0.55);
+  transition: opacity 180ms ease;
+}
+
+.innerVisible {
+  opacity: 1;
+}

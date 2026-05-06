@@ -1,0 +1,16 @@
+.signalPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(198, 255, 52, 0.28);
+  border-radius: 0.95rem;
+  background:
+    linear-gradient(135deg, rgba(198, 255, 52, 0.12), rgba(255, 255, 255, 0.04)),
+    rgba(198, 255, 52, 0.04);
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}

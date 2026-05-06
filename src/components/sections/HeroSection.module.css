@@ -1,0 +1,452 @@
+.hero {
+  min-height: calc(100vh - 5rem);
+  padding: 1.25rem 0 5rem;
+}
+
+.heroShell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(380px, 1.05fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.heroCopy,
+.heroStage {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+}
+
+.heroCopy {
+  display: grid;
+  align-content: space-between;
+  gap: 1.4rem;
+  padding: 1.6rem;
+  min-height: calc(100vh - 8rem);
+  clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  animation: riseIn 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.kicker {
+  color: rgba(255, 255, 255, 0.78);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.88rem;
+}
+
+.title {
+  max-width: 7.7ch;
+  font-size: clamp(3.05rem, 6.6vw, 6.15rem);
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+}
+
+.description {
+  max-width: 34rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.78;
+  text-wrap: pretty;
+}
+
+.routePanel {
+  display: grid;
+  gap: 0.95rem;
+  padding-top: 0.2rem;
+}
+
+.routeLabel {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.routeButtons {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.routeButton,
+.routeButtonActive {
+  padding: 0.95rem 1rem;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-text);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+  transition:
+    transform var(--transition-smooth),
+    border-color var(--transition-smooth),
+    background var(--transition-smooth);
+}
+
+.routeButton:hover,
+.routeButtonActive:hover,
+.routeButton:focus-visible,
+.routeButtonActive:focus-visible {
+  transform: translateX(4px);
+}
+
+.routeButtonActive {
+  border-color: rgba(198, 255, 52, 0.32);
+  background:
+    linear-gradient(135deg, rgba(198, 255, 52, 0.09), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.03);
+}
+
+.routeSummary {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(9, 6, 17, 0.42);
+}
+
+.routeSummary strong {
+  font-size: 1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.4;
+}
+
+.routeSummary span {
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  padding: 0.98rem 1.18rem;
+  border-radius: 1rem;
+  border: 1px solid transparent;
+  transition:
+    transform var(--transition-smooth),
+    border-color var(--transition-smooth),
+    background var(--transition-smooth);
+}
+
+.primaryAction {
+  background: var(--color-accent);
+  color: #091103;
+  font-weight: 800;
+}
+
+.secondaryAction {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover,
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible {
+  transform: translateY(-2px);
+}
+
+.heroStage {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  min-height: calc(100vh - 8rem);
+  clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);
+  animation: riseIn 1100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.stageTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.stagePoster {
+  position: relative;
+  min-height: 24rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    linear-gradient(135deg, rgba(198, 255, 52, 0.04), transparent 40%);
+  transform:
+    perspective(1600px)
+    rotateX(var(--tilt-y-soft))
+    rotateY(var(--tilt-x-soft));
+  transform-style: preserve-3d;
+}
+
+.scanBeam {
+  position: absolute;
+  inset: -15% auto -15% -12%;
+  width: 42%;
+  background: linear-gradient(90deg, transparent, rgba(198, 255, 52, 0.12), transparent);
+  filter: blur(10px);
+  transform: rotate(12deg) translateX(-120%);
+  animation: scanBeam 8s ease-in-out infinite;
+}
+
+.stagePoster::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+}
+
+.stageGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.25;
+}
+
+.iconLayer {
+  position: absolute;
+  left: -2%;
+  top: 8%;
+  width: min(32%, 11rem);
+  opacity: 0.22;
+  transform:
+    translate3d(calc((var(--pointer-x-unit) - 0.5) * -34px), calc((var(--pointer-y-unit) - 0.5) * 26px), 0)
+    rotate(12deg);
+  transition: transform 180ms ease-out;
+}
+
+.wordmarkLayer {
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 4.5rem;
+  opacity: 0.16;
+  transform: translate3d(calc((var(--pointer-x-unit) - 0.5) * 22px), 0, 0);
+  transition: transform 180ms ease-out;
+}
+
+.routeCard {
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  top: 1.2rem;
+  z-index: 1;
+  max-width: 28rem;
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(12, 8, 22, 0.7);
+  backdrop-filter: blur(14px);
+  animation: routeCardIn 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.routeCard small {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.routeCard h2 {
+  max-width: 15ch;
+  font-size: clamp(1.8rem, 3vw, 2.9rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.routeCard p {
+  color: var(--color-text-muted);
+  line-height: 1.68;
+  text-wrap: pretty;
+}
+
+.routeTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.routeTags span {
+  padding: 0.62rem 0.82rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text);
+  font-size: 0.8rem;
+}
+
+.signalRow {
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  z-index: 1;
+}
+
+.signalRow span {
+  padding: 0.72rem 0.9rem;
+  border: 1px solid rgba(198, 255, 52, 0.24);
+  background: rgba(11, 7, 20, 0.74);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  animation: pulseTag 4.2s ease-in-out infinite;
+}
+
+.signalRow span:nth-child(2) {
+  animation-delay: 200ms;
+}
+
+.signalRow span:nth-child(3) {
+  animation-delay: 400ms;
+}
+
+.signalRow span:nth-child(4) {
+  animation-delay: 600ms;
+}
+
+.heroStage[data-mode="product"] .stagePoster {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    linear-gradient(135deg, rgba(198, 255, 52, 0.08), rgba(255, 255, 255, 0.02) 48%, transparent 62%);
+}
+
+.heroStage[data-mode="space"] .stagePoster {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(198, 255, 52, 0.06) 55%, transparent 75%);
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.metricCard {
+  display: grid;
+  gap: 0.35rem;
+  min-height: 7rem;
+  padding: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(9, 6, 17, 0.44);
+  transition:
+    transform var(--transition-smooth),
+    border-color var(--transition-smooth),
+    background var(--transition-smooth);
+}
+
+.metricCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(198, 255, 52, 0.24);
+  background: rgba(198, 255, 52, 0.06);
+}
+
+.metricCard strong {
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  letter-spacing: -0.06em;
+}
+
+.metricCard span {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scanBeam {
+  0%,
+  100% {
+    transform: rotate(12deg) translateX(-120%);
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: rotate(12deg) translateX(240%);
+    opacity: 0.95;
+  }
+
+  60% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulseTag {
+  0%,
+  100% {
+    transform: translateY(0);
+    border-color: rgba(198, 255, 52, 0.24);
+  }
+
+  50% {
+    transform: translateY(-4px);
+    border-color: rgba(198, 255, 52, 0.42);
+  }
+}
+
+@keyframes routeCardIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .heroShell {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy,
+  .heroStage {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .routeCard {
+    max-width: none;
+  }
+
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+}
